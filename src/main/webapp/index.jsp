@@ -6,6 +6,8 @@
 <%@ page import="uk.me.paulgarner.fh.domain.Person" %>
 <%@ page import="uk.me.paulgarner.fh.service.PersonService" %>
 
+<jsp:useBean id="personService" class="uk.me.paulgarner.fh.service.PersonService" />
+
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -19,6 +21,6 @@
 	
 	<h1><%=dbHost%></h1>
 	<h1><%=dbPort%></h1>
-	<h:outputText value="#{personService.find(55287)}" />
+	<h1><%=personService.find(55287L)%></h1>
 </body>
 </html>

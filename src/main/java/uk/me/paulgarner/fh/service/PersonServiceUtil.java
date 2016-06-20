@@ -2,11 +2,12 @@ package uk.me.paulgarner.fh.service;
 
 import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 import uk.me.paulgarner.fh.domain.Person;
 
-@ApplicationScoped
+@Model
 public class PersonServiceUtil {
 
 	@Inject

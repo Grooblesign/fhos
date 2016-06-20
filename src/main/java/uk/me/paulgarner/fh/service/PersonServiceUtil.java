@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import uk.me.paulgarner.fh.domain.Person;
 
 @ApplicationScoped
-@Stateless
 public class PersonServiceUtil {
 
 	@Inject

@@ -1,11 +1,17 @@
 package uk.me.paulgarner.fh.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Person {
+@Table(name = "person")
+public class Person implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column

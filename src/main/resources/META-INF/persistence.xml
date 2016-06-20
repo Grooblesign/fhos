@@ -6,7 +6,7 @@
     <persistence-unit name="todos" transaction-type="JTA">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <jta-data-source>java:jboss/datasources/PostgreSQLDS</jta-data-source>
-        <class>uk.me.paulgarner.fh.domain.Person</class>
+        <!-- <class>uk.me.paulgarner.fh.domain.Person</class> -->
         <properties>
             <property name="hibernate.show_sql" value="true" />
             <!-- <property name="hibernate.hbm2ddl.auto" value="create" />  -->

@@ -20,8 +20,7 @@
 		
 		<h1><%=dbHost%></h1>
 		<h1><%=dbPort%></h1>
-		<h1><c:out value="${personServiceDAO.test}"/></h1>
 		<h1><c:out value="${personServiceDAO.findById(55287).getSurname()}"/></h1>
-		
+		<h1><c:out value="${personServiceDAO.findById(55287).getForenames()}"/></h1>
 	</body>
 </html>

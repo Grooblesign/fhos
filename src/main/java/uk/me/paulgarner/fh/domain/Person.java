@@ -23,10 +23,10 @@ public class Person implements Serializable {
 	@Column
 	private String surname;
 
-	@Column(name="fatherid")
+	@Column(name="fatherid", nullable=true)
 	private long fatherId;
 
-	@Column(name="motherid")
+	@Column(name="motherid", nullable=true)
 	private long motherId;
 
 	public long getId() {

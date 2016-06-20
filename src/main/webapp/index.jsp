@@ -10,16 +10,11 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link rel="stylesheet" href="stylesheet.css" type="text/css" media="all">
 		<title>Family History</title>
 	</head>
 	<body>
-		<%
-			String dbHost = System.getenv().get("OPENSHIFT_POSTGRESQL_DB_HOST");
-			String dbPort = System.getenv().get("OPENSHIFT_POSTGRESQL_DB_PORT");
-		%>
 		
-		<h1><%=dbHost%></h1>
-		<h1><%=dbPort%></h1>
 		<h1><c:out value="${personServiceDAO.findById(55287).getSurname()}"/></h1>
 		<h1><c:out value="${personServiceDAO.findById(55287).getForenames()}"/></h1>
 	</body>

@@ -5,6 +5,7 @@
 <head>
 	<%@ page import="uk.me.paulgarner.fh.service.PersonServiceUtil" %>
 	<%@ page import="uk.me.paulgarner.fh.domain.Person" %>
+	<%@ page import="javax.inject.Inject"  %>
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Family History</title>
@@ -14,7 +15,8 @@
 		String dbHost = System.getenv().get("OPENSHIFT_POSTGRESQL_DB_HOST");
 		String dbPort = System.getenv().get("OPENSHIFT_POSTGRESQL_DB_PORT");
 		
-		PersonServiceUtil util = new PersonServiceUtil();
+		@Inject
+		PersonServiceUtil util;
 		
 		Person person = util.findById(55287);
 		

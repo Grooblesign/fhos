@@ -1,7 +1,7 @@
 body {
 	color: #000000;
 	background-color: #ffffff;
-	font-family: consolas, arial;
+	font-family: Consolas, monaco, monospace;
 }
 table {
 	border-style: solid;

@@ -24,10 +24,10 @@ public class Person implements Serializable {
 	private String surname;
 
 	@Column(name="fatherid", nullable=true)
-	private long fatherId;
+	private Long fatherId;
 
 	@Column(name="motherid", nullable=true)
-	private long motherId;
+	private Long motherId;
 
 	public long getId() {
 		return id;
@@ -53,19 +53,19 @@ public class Person implements Serializable {
 		this.surname = surname;
 	}
 
-	public long getFatherId() {
+	public Long getFatherId() {
 		return fatherId;
 	}
 
-	public void setFatherId(long fatherId) {
+	public void setFatherId(Long fatherId) {
 		this.fatherId = fatherId;
 	}
 
-	public long getMotherId() {
+	public Long getMotherId() {
 		return motherId;
 	}
 
-	public void setMotherId(long motherId) {
+	public void setMotherId(Long motherId) {
 		this.motherId = motherId;
 	}
 }

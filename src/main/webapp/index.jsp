@@ -6,7 +6,7 @@
 <%@ page import="uk.me.paulgarner.fh.domain.Person" %>
 <%@ page import="uk.me.paulgarner.fh.service.PersonService" %>
 
-<jsp:useBean id="personService" class="uk.me.paulgarner.fh.service.PersonService" />
+<jsp:useBean id="personServiceUtil" class="uk.me.paulgarner.fh.service.PersonServiceUtil" />
 
 <html>
 <head>
@@ -21,6 +21,6 @@
 	
 	<h1><%=dbHost%></h1>
 	<h1><%=dbPort%></h1>
-	<h1><%=personService.find(55287L)%></h1>
+	<h1><%=personServiceUtil.findById(55287L)%></h1>
 </body>
 </html>

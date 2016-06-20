@@ -20,9 +20,13 @@ public class PersonServiceUtil {
 	}
 
 	public String getTest() {
-		// findById(55287).getSurname()
+		Person person = findById(55287);
 		
-		test = "Wibble";
+		if (null ==  person) {
+			test = "Wibble";
+		} else {
+			test = person.getSurname();
+		}
 		
 		return test;
 	}

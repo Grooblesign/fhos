@@ -19,14 +19,7 @@ public class PersonServiceDAO {
 	private String test;
 
 	public List<Person> findAll() {
-		List<Person> result = new ArrayList<Person>();
-		
-		Person root = findById(55287); 
-		result.add(root);
-		result.add(findById(root.getFatherId()));
-		result.add(findById(root.getMotherId()));
-		
-		return result;
+		return personService.findAll();
 	}
 	
 	public Person findById(long id) {

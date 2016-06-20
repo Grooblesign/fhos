@@ -19,6 +19,7 @@
 		<c:forEach items="${personServiceDAO.findAll()}" var="person">
 			<c:out value="${person.surname}"/>
 			<c:out value="${person.forenames}"/>
+			<br />
 		</c:forEach>			
 	</body>
 </html>

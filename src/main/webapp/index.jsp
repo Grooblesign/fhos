@@ -6,21 +6,18 @@
 <%@ page import="uk.me.paulgarner.fh.domain.Person" %>
 <%@ page import="uk.me.paulgarner.fh.service.PersonService" %>
 
-<jsp:useBean id="personServiceUtil" class="uk.me.paulgarner.fh.service.PersonServiceUtil" />
-
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Family History</title>
-</head>
-<body>
-	<%
-		String dbHost = System.getenv().get("OPENSHIFT_POSTGRESQL_DB_HOST");
-		String dbPort = System.getenv().get("OPENSHIFT_POSTGRESQL_DB_PORT");
-	%>
-	
-	<h1><%=dbHost%></h1>
-	<h1><%=dbPort%></h1>
-	<h1><%=personServiceUtil.findById(55287L)%></h1>
-</body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Family History</title>
+	</head>
+	<body>
+		<%
+			String dbHost = System.getenv().get("OPENSHIFT_POSTGRESQL_DB_HOST");
+			String dbPort = System.getenv().get("OPENSHIFT_POSTGRESQL_DB_PORT");
+		%>
+		
+		<h1><%=dbHost%></h1>
+		<h1><%=dbPort%></h1>
+	</body>
 </html>

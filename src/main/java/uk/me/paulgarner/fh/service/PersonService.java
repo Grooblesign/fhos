@@ -12,7 +12,7 @@ import uk.me.paulgarner.fh.domain.Person;
 @Stateless
 public class PersonService {
 
-	@PersistenceContext
+	// @PersistenceContext
 	@Inject
     private EntityManager entityManager;
  

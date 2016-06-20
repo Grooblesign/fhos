@@ -1,0 +1,24 @@
+body {
+	color: #000000;
+	background-color: #ffffff;
+	font-family: consolas, arial;
+}
+table {
+	border-style: solid;
+	border-color: #000000;
+	border-collapse: collapse;
+	cursor: pointer;
+}
+th, .header {
+	background: #cccccc;
+	font-weight: bold;
+	cursor: pointer;
+}
+td, th {
+	border-style: solid;
+	border-width: thin;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}

@@ -21,7 +21,7 @@
 		
 		<h1><%=dbHost%></h1>
 		<h1><%=dbPort%></h1>
-		<h1><c:out value="${personServiceUtil.find(55287}"/></h1>
+		<h1><c:out value="${personServiceUtil.find(55287)}"/></h1>
 		
 	</body>
 </html>

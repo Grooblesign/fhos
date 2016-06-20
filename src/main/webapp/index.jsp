@@ -16,7 +16,7 @@
 	<body>
 		<H1>Family History</H1>
 
-		<c:forEach items="${personServiceDAO.findAll()}" var="person">
+		<c:forEach items="${personServiceDAO.all}" var="person">
 			<c:out value="${person.surname}"/>
 			<c:out value="${person.forenames}"/>
 			<br />

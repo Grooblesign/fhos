@@ -18,6 +18,10 @@ public class PersonServiceDAO {
 	
 	private String test;
 
+	public List<Person> getAll() {
+		return personService.findAll();
+	}
+
 	public List<Person> findAll() {
 		return personService.findAll();
 	}

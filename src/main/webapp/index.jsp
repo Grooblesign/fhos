@@ -15,11 +15,14 @@
 	</head>
 	<body>
 		<H1>Family History</H1>
-
+		
+		<table>
 		<c:forEach items="${personServiceDAO.all}" var="person">
-			<c:out value="${person.surname}"/>
-			<c:out value="${person.forenames}"/>
-			<br />
-		</c:forEach>			
+			<tr>
+				<td><c:out value="${person.surname}"/></td>
+				<td><c:out value="${person.forenames}"/></td>
+			</tr>
+		</c:forEach>
+		</table>			
 	</body>
 </html>

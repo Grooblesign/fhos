@@ -4,7 +4,6 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ page import="uk.me.paulgarner.fh.service.PersonServiceUtil" %>
 <%@ page import="uk.me.paulgarner.fh.domain.Person" %>
 <%@ page import="uk.me.paulgarner.fh.service.PersonService" %>
 

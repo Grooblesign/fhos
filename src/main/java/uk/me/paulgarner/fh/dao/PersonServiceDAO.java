@@ -1,5 +1,8 @@
 package uk.me.paulgarner.fh.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
@@ -14,6 +17,17 @@ public class PersonServiceDAO {
     private PersonService personService;
 	
 	private String test;
+
+	public List<Person> findAll() {
+		List<Person> result = new ArrayList<Person>();
+		
+		Person root = findById(55287); 
+		result.add(root);
+		result.add(findById(root.getFatherId()));
+		result.add(findById(root.getMotherId()));
+		
+		return result;
+	}
 	
 	public Person findById(long id) {
 		return personService.find(id);

@@ -15,10 +15,10 @@
 	</head>
 	<body>
 		<H1>Family History</H1>
-	
-		<h2>Show surnames starting with:</h2>
-		
-		<h1><c:out value="${personServiceDAO.findById(55287).getSurname()}"/></h1>
-		<h1><c:out value="${personServiceDAO.findById(55287).getForenames()}"/></h1>
+
+		<c:forEach items="personServiceDAO.findAll()" var="person">
+			<c:out value="${person.getSurname()}"/>
+			<c:out value="${person.getForenames()}"/>
+		</c:forEach>			
 	</body>
 </html>

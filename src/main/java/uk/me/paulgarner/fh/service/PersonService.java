@@ -20,7 +20,7 @@ public class PersonService {
     @SuppressWarnings("unchecked")
 	public List<Person> findAll() {
     	return entityManager.createQuery(
-    		    "SELECT p FROM Person p")
+    		    "SELECT p FROM Person p ORDER BY p.surname, p.forenames")
     		    .getResultList();    
    	}
     

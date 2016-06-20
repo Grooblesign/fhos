@@ -1,11 +1,13 @@
 package uk.me.paulgarner.fh.service;
 
+import javax.annotation.ManagedBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import uk.me.paulgarner.fh.domain.Person;
 
+@ManagedBean
 @Stateless
 public class PersonService {
 

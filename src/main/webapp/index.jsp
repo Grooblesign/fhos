@@ -4,12 +4,7 @@
 
 <%@ page import="uk.me.paulgarner.fh.service.PersonServiceUtil" %>
 <%@ page import="uk.me.paulgarner.fh.domain.Person" %>
-<%@ page import="javax.inject.Inject" %>
-
-<%!
-	@Inject
-	PersonServiceUtil util;
-%>
+<%@ page import="uk.me.paulgarner.fh.service.PersonService" %>
 
 <html>
 <head>
@@ -20,18 +15,10 @@
 	<%
 		String dbHost = System.getenv().get("OPENSHIFT_POSTGRESQL_DB_HOST");
 		String dbPort = System.getenv().get("OPENSHIFT_POSTGRESQL_DB_PORT");
-		
-		Person person = util.findById(55287);
-		
-		String surname = "Fail";
-		
-		if (null != person) {
-			surname = person.getSurname();
-		}
 	%>
 	
 	<h1><%=dbHost%></h1>
 	<h1><%=dbPort%></h1>
-	<h1><%=surname%></h1>
+	<h:outputText value="#{personService.find(55287)}" />
 </body>
 </html>

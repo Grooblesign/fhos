@@ -4,6 +4,7 @@
 <html>
 <head>
 	<%@ page import="uk.me.paulgarner.fh.service.PersonServiceUtil" %>
+	<%@ page import="uk.me.paulgarner.fh.domain.Person" %>
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Family History</title>
@@ -15,7 +16,13 @@
 		
 		PersonServiceUtil util = new PersonServiceUtil();
 		
-		String surname = util.findById(55287).getSurname();
+		Person person = util.findById(55287);
+		
+		String surname = "Fail";
+		
+		if (null != person) {
+			surname = person.getSurname();
+		}
 	%>
 	
 	<h1><%=dbHost%></h1>

@@ -2,7 +2,6 @@ package uk.me.paulgarner.fh.service;
 
 import javax.annotation.ManagedBean;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -12,8 +11,7 @@ import uk.me.paulgarner.fh.domain.Person;
 @Stateless
 public class PersonService {
 
-	// @PersistenceContext
-	@Inject
+	@PersistenceContext
     private EntityManager entityManager;
  
 	public Person find(Long id) {

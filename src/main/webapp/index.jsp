@@ -17,10 +17,13 @@
 		<H1>Family History</H1>
 		
 		<table>
-		<c:forEach items="${personServiceDAO.all}" var="person">
+		<c:forEach items="${personServiceDAO.findAll()}" var="person">
 			<tr>
+				<td><a href="person.jsp?id=<c:out value="${person.id}"/>"><c:out value="${person.id}"/></a></td>
 				<td><c:out value="${person.surname}"/></td>
 				<td><c:out value="${person.forenames}"/></td>
+				<td><c:out value="${person.fatherId}"/></td>
+				<td><c:out value="${person.motherId}"/></td>
 			</tr>
 		</c:forEach>
 		</table>			

@@ -7,11 +7,29 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Person</title>
 	</head>
 	<body>
-		Hello <b><%= request.getParameter("id") %></b>!
-		<br />
-		<c:out value="${personServiceDAO.findById(Long.parseLong(request.getParameter(\"id\"))).surname}"/> 
+		<%
+			pageContext.setAttribute("id", request.getParameter("id"));
+		%>
+		
+		<c:set var="person" value="${personServiceDAO.findById(id)}"/>
+		<c:set var="father" value="${personServiceDAO.findById(personServiceDAO.findById(id).getFatherId())}"/>
+		<c:set var="mother" value="${personServiceDAO.findById(personServiceDAO.findById(id).getMotherId())}"/>
+		
+		<h1>
+			<c:out value="${person.getForenames()}"/>
+			<c:out value="${person.getSurname()}"/>
+		</h1> 
+		<h2> 
+			<c:out value="${father.getForenames()}"/>
+			<c:out value="${father.getSurname()}"/>
+		</h2>
+		<h2> 
+			<c:out value="${mother.getForenames()}"/>
+			<c:out value="${mother.getSurname()}"/>
+		</h2>
 	</body>
 </html>

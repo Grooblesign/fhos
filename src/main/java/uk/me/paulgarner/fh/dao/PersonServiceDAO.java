@@ -30,6 +30,10 @@ public class PersonServiceDAO {
 		return personService.find(id);
 	}
 
+	public Person findById(String id) {
+		return personService.find(Long.parseLong(id));
+	}
+
 	public String getTest() {
 		Person person = findById(55287);
 		

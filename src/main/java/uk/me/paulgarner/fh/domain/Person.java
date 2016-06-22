@@ -38,7 +38,7 @@ public class Person implements Serializable {
 	}
 
 	public String getForenames() {
-		return forenames;
+		return forenames.trim();
 	}
 
 	public void setForenames(String forenames) {
@@ -46,7 +46,7 @@ public class Person implements Serializable {
 	}
 
 	public String getSurname() {
-		return surname;
+		return surname.trim();
 	}
 
 	public void setSurname(String surname) {

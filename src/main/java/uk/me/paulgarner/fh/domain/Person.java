@@ -68,4 +68,17 @@ public class Person implements Serializable {
 	public void setMotherId(Long motherId) {
 		this.motherId = motherId;
 	}
+	
+	public String getFullName() {
+		String fullName = "";
+		
+		if (null != forenames && forenames.length() > 0) {
+			fullName = fullName + forenames + " ";
+		}
+		if (null != surname && surname.length() > 0) {
+			fullName = fullName + surname;
+		}		
+		
+		return fullName.trim();
+	}
 }

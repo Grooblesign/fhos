@@ -20,16 +20,33 @@
 		<c:set var="mother" value="${personServiceDAO.findById(personServiceDAO.findById(id).getMotherId())}"/>
 		
 		<h1>
-			<c:out value="${person.getForenames()}"/>
-			<c:out value="${person.getSurname()}"/>
-		</h1> 
-		<h2> 
-			<c:out value="${father.getForenames()}"/>
-			<c:out value="${father.getSurname()}"/>
-		</h2>
-		<h2> 
-			<c:out value="${mother.getForenames()}"/>
-			<c:out value="${mother.getSurname()}"/>
-		</h2>
+			<c:out value="${person.getFullName()}"/>
+		</h1>
+
+		<h2>Parents</h2>
+		
+		<table width='75%'>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Birth</th>
+					<th>Death</th>
+				</tr>
+			</thead>
+			<tr>
+				<td width="10%"><c:out value="${father.getId()}"/></td>
+				<td><c:out value="${father.getFullName()}"/></td>
+				<td width="30%"></td>
+				<td width="30%"></td>
+			</tr>
+			<tr>
+				<td width="10%"><c:out value="${mother.getId()}"/></td>
+				<td><c:out value="${mother.getFullName()}"/></td>
+				<td width="30%"></td>
+				<td width="30%"></td>
+			</tr>
+		</table>
+		 
 	</body>
 </html>

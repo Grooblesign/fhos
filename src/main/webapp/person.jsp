@@ -35,18 +35,29 @@
 				</tr>
 			</thead>
 			<tr>
-				<td width="10%"><c:out value="${father.getId()}"/></td>
-				<td><c:out value="${father.getFullName()}"/></td>
+				<c:if test="${null != father}">
+					<td width="10%"><a href="person.jsp?id=<c:out value="${father.id}"/>"><c:out value="${father.id}"/></a></td>
+					<td><c:out value="${father.getFullName()}"/></td>
+				</c:if>
+				<c:if test="${null == father}">
+					<td width="10%">&nbsp;</td>
+					<td>&nbsp;</td>
+				</c:if>
 				<td width="30%"></td>
 				<td width="30%"></td>
 			</tr>
 			<tr>
-				<td width="10%"><c:out value="${mother.getId()}"/></td>
-				<td><c:out value="${mother.getFullName()}"/></td>
+				<c:if test="${null != mother}">
+					<td width="10%"><c:out value="${mother.getId()}"/></td>
+					<td><c:out value="${mother.getFullName()}"/></td>
+				</c:if>
+				<c:if test="${null == mother}">
+					<td width="10%">&nbsp;</td>
+					<td>&nbsp;</td>
+				</c:if>
 				<td width="30%"></td>
 				<td width="30%"></td>
 			</tr>
 		</table>
-		 
 	</body>
 </html>

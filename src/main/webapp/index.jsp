@@ -4,9 +4,6 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ page import="uk.me.paulgarner.fh.domain.Person" %>
-<%@ page import="uk.me.paulgarner.fh.service.PersonService" %>
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -17,13 +14,13 @@
 		<H1>Family History</H1>
 		
 		<table>
-		<c:forEach items="${personServiceDAO.findAll()}" var="person">
+		<c:forEach items="${personService.getAll()}" var="person">
 			<tr>
 				<td><a href="person.jsp?id=<c:out value="${person.id}"/>"><c:out value="${person.id}"/></a></td>
 				<td><c:out value="${person.surname}"/></td>
 				<td><c:out value="${person.forenames}"/></td>
-				<td><c:out value="${person.fatherId}"/></td>
-				<td><c:out value="${person.motherId}"/></td>
+				<td><c:out value="${person.birthEvent.date}"/></td>
+				<td><c:out value="${person.birthEvent.location}"/></td>
 			</tr>
 		</c:forEach>
 		</table>			

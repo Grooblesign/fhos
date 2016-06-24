@@ -1,33 +1,35 @@
 package uk.me.paulgarner.fh.domain;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "person")
-public class Person implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@Column
+public class Person {
+	
 	private long id;
 	
-	@Column
 	private String forenames;
 
-	@Column
 	private String surname;
 
-	@Column(name="fatherid", nullable=true)
 	private Long fatherId;
 
-	@Column(name="motherid", nullable=true)
 	private Long motherId;
+	
+	private String birthDate;
+	
+	private String deathDate;
+	
+	private Event birthEvent;
+
+	public String getFullName() {
+		String fullName = "";
+		
+		if (null != forenames && forenames.length() > 0) {
+			fullName = fullName + forenames + " ";
+		}
+		if (null != surname && surname.length() > 0) {
+			fullName = fullName + surname;
+		}		
+		
+		return fullName.trim();
+	}
 
 	public long getId() {
 		return id;
@@ -38,7 +40,7 @@ public class Person implements Serializable {
 	}
 
 	public String getForenames() {
-		return forenames.trim();
+		return forenames;
 	}
 
 	public void setForenames(String forenames) {
@@ -46,7 +48,7 @@ public class Person implements Serializable {
 	}
 
 	public String getSurname() {
-		return surname.trim();
+		return surname;
 	}
 
 	public void setSurname(String surname) {
@@ -68,17 +70,28 @@ public class Person implements Serializable {
 	public void setMotherId(Long motherId) {
 		this.motherId = motherId;
 	}
-	
-	public String getFullName() {
-		String fullName = "";
-		
-		if (null != forenames && forenames.length() > 0) {
-			fullName = fullName + forenames + " ";
-		}
-		if (null != surname && surname.length() > 0) {
-			fullName = fullName + surname;
-		}		
-		
-		return fullName.trim();
+
+	public String getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public String getDeathDate() {
+		return deathDate;
+	}
+
+	public void setDeathDate(String deathDate) {
+		this.deathDate = deathDate;
+	}
+
+	public Event getBirthEvent() {
+		return birthEvent;
+	}
+
+	public void setBirthEvent(Event birthEvent) {
+		this.birthEvent = birthEvent;
 	}
 }

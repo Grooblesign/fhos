@@ -35,6 +35,7 @@ public class PersonService {
 			person.setMotherId(personEntity.getMotherId());
 
 			person.setBirthEvent(getBirthEvent(personEntity.getId()));
+			person.setDeathEvent(getDeathEvent(personEntity.getId()));
 
 			result.add(person);
 		}
@@ -54,6 +55,7 @@ public class PersonService {
 		person.setMotherId(personEntity.getMotherId());
 
 		person.setBirthEvent(getBirthEvent(id));
+		person.setDeathEvent(getDeathEvent(personEntity.getId()));
 		
 		return person;
 	}
@@ -66,6 +68,24 @@ public class PersonService {
 		Event result = null;
 		
 		List<uk.me.paulgarner.fh.entity.Event> eventEntities = eventDAO.findAllByPersonIdAndType(id,  "Birth");
+		
+		if (!eventEntities.isEmpty()) {
+			result = new Event();
+			result.setId(eventEntities.get(0).getId());
+			result.setPersonId(eventEntities.get(0).getPersonId());
+			result.setEventType(eventEntities.get(0).getEventType());
+			result.setDate(eventEntities.get(0).getDate());
+			result.setLocation(eventEntities.get(0).getLocation());
+			result.setDetails(eventEntities.get(0).getDetails());
+		}
+				
+		return result;
+	}
+	
+	private Event getDeathEvent(Long id) {
+		Event result = null;
+		
+		List<uk.me.paulgarner.fh.entity.Event> eventEntities = eventDAO.findAllByPersonIdAndType(id, "Death");
 		
 		if (!eventEntities.isEmpty()) {
 			result = new Event();

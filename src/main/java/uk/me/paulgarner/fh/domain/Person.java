@@ -18,6 +18,8 @@ public class Person {
 	
 	private Event birthEvent;
 
+	private Event deathEvent;
+
 	public String getFullName() {
 		String fullName = "";
 		
@@ -93,5 +95,13 @@ public class Person {
 
 	public void setBirthEvent(Event birthEvent) {
 		this.birthEvent = birthEvent;
+	}
+
+	public Event getDeathEvent() {
+		return deathEvent;
+	}
+
+	public void setDeathEvent(Event deathEvent) {
+		this.deathEvent = deathEvent;
 	}
 }

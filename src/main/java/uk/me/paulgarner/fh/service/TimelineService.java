@@ -1,6 +1,7 @@
 package uk.me.paulgarner.fh.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,11 +26,13 @@ public class TimelineService {
 		typeMap.put("Birth", TimelineEventType.BIRTH);
 		typeMap.put("Burial", TimelineEventType.BURIAL);
 		typeMap.put("Death", TimelineEventType.DEATH);
+		typeMap.put("Occupation", TimelineEventType.OCCUPATION);
 	}
 	
 	@Inject
 	private EventDAO eventDAO;
 
+	@SuppressWarnings("unchecked")
 	public List<TimelineEvent> getAllByPersonId(Long personId) {
 		
 		List<TimelineEvent> result = new ArrayList<TimelineEvent>();
@@ -50,6 +53,8 @@ public class TimelineService {
 				result.add(timelineEvent);
 			}
 		}
+		
+		Collections.sort(result);
 		
 		return result;
 	}

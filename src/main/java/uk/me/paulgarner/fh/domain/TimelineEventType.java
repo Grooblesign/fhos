@@ -1,13 +1,14 @@
 package uk.me.paulgarner.fh.domain;
 
 public enum TimelineEventType {
-	BIRTH,
 	BAPTISM,
-	MARRIAGE,
-	DEATH,
+	BIRTH,
 	BURIAL,
+	CENSUS,
 	CHILDBORN,
 	CHILDDEATH,
-	SPOUSEDEATH,
-	CENSUS
+	DEATH,
+	MARRIAGE,
+	OCCUPATION,
+	SPOUSEDEATH
 }

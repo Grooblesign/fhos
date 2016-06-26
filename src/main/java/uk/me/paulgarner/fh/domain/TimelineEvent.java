@@ -1,6 +1,8 @@
 package uk.me.paulgarner.fh.domain;
 
-public class TimelineEvent {
+import uk.me.paulgarner.fh.util.DateValueCalculator;
+
+public class TimelineEvent implements Comparable {
 	
 	private Long id;
 	private Long personId;
@@ -44,5 +46,15 @@ public class TimelineEvent {
 	}
 	public void setDetails(String details) {
 		this.details = details;
+	}
+	
+	@Override
+	public int compareTo(Object o) {
+		TimelineEvent other = (TimelineEvent)o;
+		
+		Integer thisDateValue = DateValueCalculator.getDateValue(this.getDate());
+		Integer otherDateValue = DateValueCalculator.getDateValue(other.getDate());
+		
+		return thisDateValue.compareTo(otherDateValue);
 	}
 }

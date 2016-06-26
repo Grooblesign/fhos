@@ -52,7 +52,7 @@ public class DateValueCalculator {
 			value = Integer.parseInt(dateString.substring(0,2));
 			result = result + value;
 
-			value = months.indexOf(dateString.substring(3, 6));
+			value = months.indexOf(dateString.substring(3, 6).toUpperCase());
 			result = result + ((value/3)+1)*100;
 		}
 		
@@ -62,7 +62,7 @@ public class DateValueCalculator {
 			Integer value = Integer.parseInt(dateString.substring(4,8));
 			result = (value * 10000);
 			
-			value = months.indexOf(dateString.substring(0, 3));
+			value = months.indexOf(dateString.substring(0, 3).toUpperCase());
 			result = result + ((value/3)+1)*100;
 		}
 

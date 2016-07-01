@@ -1,8 +1,5 @@
 package uk.me.paulgarner.fh.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-
 public class Event {
 
 	private long id;

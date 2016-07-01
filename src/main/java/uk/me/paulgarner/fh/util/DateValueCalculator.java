@@ -39,7 +39,7 @@ public class DateValueCalculator {
 			Integer value = Integer.parseInt(dateString.substring(3,7));
 			result = (value * 10000) + 100;
 			
-			value = Integer.parseInt(dateString.substring(1, 1));
+			value = Integer.parseInt(dateString.substring(1, 2));
 			result = result + ((value - 1) * 300);
 		}
 		

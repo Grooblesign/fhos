@@ -2,15 +2,12 @@ package uk.me.paulgarner.fh.dao;
 
 import java.util.List;
 
-import javax.enterprise.inject.Model;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
 
 import uk.me.paulgarner.fh.entity.Event;
-import uk.me.paulgarner.fh.entity.Person;
 
-@Model
 public class EventDAO {
 	
     @PersistenceContext(unitName = "fh", type = PersistenceContextType.EXTENDED)

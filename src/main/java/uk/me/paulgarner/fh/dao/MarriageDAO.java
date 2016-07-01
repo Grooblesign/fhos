@@ -6,21 +6,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
 
-import uk.me.paulgarner.fh.entity.Person;
+import uk.me.paulgarner.fh.entity.Marriage;
 
-public class PersonDAO {
+public class MarriageDAO {
 
-    @PersistenceContext(unitName = "fh", type = PersistenceContextType.EXTENDED)
+	@PersistenceContext(unitName = "fh", type = PersistenceContextType.EXTENDED)
     private EntityManager entityManager;
 
     @SuppressWarnings("unchecked")
-	public List<Person> findAll() {
+	public List<Marriage> findAllByPersonId(Long personId) {
     	return entityManager.createQuery(
-    		    "SELECT p FROM Person p ORDER BY p.surname, p.forenames")
+    		    String.format("SELECT m FROM Marriage m WHERE m.husbandId=%s OR m.wifeId=%s ORDER BY m.id", personId, personId))
     		    .getResultList();    
-	}
-
-	public Person findById(long id) {
-        return entityManager.find(Person.class, id);
 	}
 }

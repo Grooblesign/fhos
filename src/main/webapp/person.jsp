@@ -39,18 +39,18 @@
 					<td width="10%"><a href="person.jsp?id=<c:out value="${father.getId()}"/>"><c:out value="${father.getId()}"/></a></td>
 					<td><c:out value="${father.getFullName()}"/></td>
 					<c:if test="${null == father.getBirthEvent()}">
-						<td>&nbsp;</td>
+						<td width="30%">&nbsp;</td>
 					</c:if>
 					<c:if test="${null != father.getBirthEvent()}">
-						<td><c:out value="${father.getBirthEvent().getDate()}" />&nbsp;<c:out value="${father.getBirthEvent().getLocation()}"/></td>
+						<td width="30%"><c:out value="${father.getBirthEvent().getDate()}" />&nbsp;<c:out value="${father.getBirthEvent().getLocation()}"/></td>
 					</c:if>
-					<td width="30%"></td>
+					<td width="30%">&nbsp;</td>
 				</c:if>
 				<c:if test="${null == father}">
 					<td width="10%">&nbsp;</td>
 					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td width="30%"></td>
+					<td width="30%">&nbsp;</td>
+					<td width="30%">&nbsp;</td>
 				</c:if>
 			</tr>
 			<tr>
@@ -58,19 +58,18 @@
 					<td width="10%"><a href="person.jsp?id=<c:out value="${mother.getId()}"/>"><c:out value="${mother.getId()}"/></a></td>
 					<td><c:out value="${mother.getFullName()}"/></td>
 					<c:if test="${null == mother.getBirthEvent()}">
-						<td>&nbsp;</td>
-						<td width="30%"></td>
+						<td width="30%">&nbsp;</td>
 					</c:if>
 					<c:if test="${null != mother.getBirthEvent()}">
-						<td><c:out value="${mother.getBirthEvent().getDate()}" />&nbsp;<c:out value="${mother.getBirthEvent().getLocation()}"/></td>
+						<td width="30%"><c:out value="${mother.getBirthEvent().getDate()}" />&nbsp;<c:out value="${mother.getBirthEvent().getLocation()}"/></td>
 					</c:if>
-					<td width="30%"></td>
+					<td width="30%">&nbsp;</td>
 				</c:if>
 				<c:if test="${null == mother}">
 					<td width="10%">&nbsp;</td>
 					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td width="30%"></td>
+					<td width="30%">&nbsp;</td>
+					<td width="30%">&nbsp;</td>
 				</c:if>
 			</tr>
 		</table>
@@ -89,13 +88,16 @@
 			</thead>
 		<c:forEach items="${timelineService.getAllByPersonId(id)}" var="event">
 			<tr>
-				<td><a href="event.jsp?id=<c:out value="${event.id}"/>"><c:out value="${person.id}"/></a></td>
-				<td><c:out value="${event.timelineEventType}"/></td>
+				<td><a href="event.jsp?id=<c:out value="${event.id}"/>"><c:out value="${event.id}"/></a></td>
+				<td><c:out value="${event.timelineEventType.asString()}"/></td>
 				<td><c:out value="${event.date}"/></td>
 				<td><c:out value="${event.location}"/></td>
 				<td><c:out value="${event.details}"/></td>
 			</tr>
 		</c:forEach>
-		</table>		
+		</table>
+		
+		<h2>Census</h2>
+				
 	</body>
 </html>

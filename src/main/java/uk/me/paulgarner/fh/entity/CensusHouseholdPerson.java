@@ -33,7 +33,7 @@ public class CensusHouseholdPerson implements Serializable {
 	private String occupation;
 
 	@Column(name="personid", nullable=true)
-	private long personId;
+	private Long personId;
 
 	@Column(name="relationshiptohead", nullable=true)
 	private String relationshipToHead;
@@ -92,11 +92,11 @@ public class CensusHouseholdPerson implements Serializable {
 		this.occupation = occupation;
 	}
 
-	public long getPersonId() {
+	public Long getPersonId() {
 		return personId;
 	}
 
-	public void setPersonId(long personId) {
+	public void setPersonId(Long personId) {
 		this.personId = personId;
 	}
 

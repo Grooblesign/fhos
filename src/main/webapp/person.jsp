@@ -16,8 +16,20 @@
 		%>
 		
 		<c:set var="person" value="${personService.getById(id)}"/>
-		<c:set var="father" value="${personService.getById(personService.getById(id).getFatherId())}"/>
-		<c:set var="mother" value="${personService.getById(personService.getById(id).getMotherId())}"/>
+
+		<c:if test="${null ne person.getFatherId() and 0 ne person.getFatherId()}">
+			<c:set var="father" value="${personService.getById(personService.getById(id).getFatherId())}"/>
+		</c:if>			
+		<c:if test="${null eq person.getFatherId() or 0 eq person.getFatherId()}">
+			<c:set var="father" value="${null}"/>
+		</c:if>			
+		
+		<c:if test="${null ne person.getMotherId() and 0 ne person.getMotherId()}">
+			<c:set var="mother" value="${personService.getById(personService.getById(id).getMotherId())}"/>
+		</c:if>			
+		<c:if test="${null eq person.getMotherId() or 0 eq person.getMotherId()}">
+			<c:set var="mother" value="${null}"/>
+		</c:if>			
 		
 		<h1>
 			<c:out value="${person.getFullName()}"/>
@@ -98,6 +110,30 @@
 		</table>
 		
 		<h2>Census</h2>
-				
+		
+		<table width='100%'>
+			<thead>
+				<tr>
+					<th width='7%'>Id</th>
+					<th>Date</th>
+					<th>Census</th>
+					<th>Address</th>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Occupation</th>
+				</tr>
+			</thead>
+		<c:forEach items="${censusService.getAllCensusSummaryForPerson(id)}" var="censusSummary">
+			<tr>
+				<td><a href="censushousehold.jsp?id=<c:out value="${censusSummary.getId()}"/>"><c:out value="${censusSummary.getId()}"/></a></td>
+				<td><c:out value="${censusSummary.getDate()}"/></td>
+				<td><c:out value="${censusSummary.getTitle()}"/></td>
+				<td><c:out value="${censusSummary.getAddress()}"/></td>
+				<td><c:out value="${censusSummary.getName()}"/></td>
+				<td><c:out value="${censusSummary.getAge()}"/></td>
+				<td><c:out value="${censusSummary.getOccupation()}"/></td>
+			</tr>
+		</c:forEach>
+		</table>
 	</body>
 </html>

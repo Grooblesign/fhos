@@ -19,4 +19,8 @@ public class CensusDAO {
     		    "SELECT c FROM Census c ORDER BY c.id")
     		    .getResultList();    
 	}
+    
+	public Census findById(long id) {
+        return entityManager.find(Census.class, id);
+	}
 }

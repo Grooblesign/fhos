@@ -20,6 +20,13 @@ public class PersonDAO {
     		    .getResultList();    
 	}
 
+    @SuppressWarnings("unchecked")
+	public List<Person> findAllBySurnameStartingWithLetter(String letter) {
+    	return entityManager.createQuery(
+    		    String.format("SELECT p FROM Person p WHERE p.surname LIKE '%s%s' ORDER BY p.surname, p.forenames", letter, "%"))
+    		    .getResultList();    
+	}
+
 	public Person findById(long id) {
         return entityManager.find(Person.class, id);
 	}

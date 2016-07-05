@@ -19,4 +19,20 @@ public class CensusHouseholdPersonDAO {
     		    String.format("SELECT c FROM CensusHouseholdPerson c WHERE c.personId=%s", id))
     		    .getResultList();    
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<CensusHouseholdPerson> findAllByCensusHouseholdId(long id) {
+		return entityManager.createQuery(
+    		    String.format("SELECT c FROM CensusHouseholdPerson c WHERE c.censusHouseholdId=%s ORDER BY c.rowNumber, c.id", id))
+    		    .getResultList();    
+	}
+
+	public CensusHouseholdPerson findByCensusHouseholdIdAndPersonId(long censusHouseholdId, long personId) {
+		
+		CensusHouseholdPerson result = (CensusHouseholdPerson) entityManager.createQuery(
+    		    String.format("SELECT c FROM CensusHouseholdPerson c WHERE c.censusHouseholdId=%s AND c.personId=%s", censusHouseholdId, personId))
+    		    .getSingleResult();    
+		
+		return result;
+	}
 }

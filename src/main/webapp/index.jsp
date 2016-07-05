@@ -12,17 +12,23 @@
 	</head>
 	<body>
 		<H1>Family History</H1>
-		
+
+		<h2>Show surnames starting with:</h2>
+
 		<table>
-		<c:forEach items="${personService.getAll()}" var="person">
 			<tr>
-				<td><a href="person.jsp?id=<c:out value="${person.id}"/>"><c:out value="${person.id}"/></a></td>
-				<td><c:out value="${person.surname}"/></td>
-				<td><c:out value="${person.forenames}"/></td>
-				<td><c:out value="${person.birthEvent.date}"/></td>
-				<td><c:out value="${person.birthEvent.location}"/></td>
+			<%
+			String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			for (int i=0; i<letters.length(); i++) {
+				String letter = letters.substring(i, i+1);
+				%>	
+				<td>
+					<a href='surnames.jsp?letter=<%=letter%>'><%=letter%></a>
+				</td>					
+				<%
+			}
+			%>
 			</tr>
-		</c:forEach>
-		</table>			
+		</table>
 	</body>
 </html>

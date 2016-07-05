@@ -42,7 +42,30 @@ public class PersonService {
 		
 		return result;
 	}
-	
+
+	public List<Person> getAllBySurnameStartingWithLetter(String letter) {
+		List<Person> result = new ArrayList<Person>();
+		
+		List<uk.me.paulgarner.fh.entity.Person> personEntities = personDAO.findAllBySurnameStartingWithLetter(letter);
+		
+		for (uk.me.paulgarner.fh.entity.Person personEntity : personEntities) {
+			Person person = new Person();
+			
+			person.setId(personEntity.getId());
+			person.setForenames(personEntity.getForenames());
+			person.setSurname(personEntity.getSurname());
+			person.setFatherId(personEntity.getFatherId());
+			person.setMotherId(personEntity.getMotherId());
+
+			person.setBirthEvent(getBirthEvent(personEntity.getId()));
+			person.setDeathEvent(getDeathEvent(personEntity.getId()));
+
+			result.add(person);
+		}
+		
+		return result;
+	}
+
 	public Person getById(Long id) {
 		uk.me.paulgarner.fh.entity.Person personEntity = personDAO.findById(id); 
 		

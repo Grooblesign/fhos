@@ -93,13 +93,21 @@ public class PersonService {
 		List<uk.me.paulgarner.fh.entity.Event> eventEntities = eventDAO.findAllByPersonIdAndType(id,  "Birth");
 		
 		if (!eventEntities.isEmpty()) {
+			uk.me.paulgarner.fh.entity.Event birthEvent = eventEntities.get(0); 
+			for (uk.me.paulgarner.fh.entity.Event event : eventEntities) {
+				if (event.isPrimary()) {
+					birthEvent = event;
+					break;
+				}
+			}
+			
 			result = new Event();
-			result.setId(eventEntities.get(0).getId());
-			result.setPersonId(eventEntities.get(0).getPersonId());
-			result.setEventType(eventEntities.get(0).getEventType());
-			result.setDate(eventEntities.get(0).getDate());
-			result.setLocation(eventEntities.get(0).getLocation());
-			result.setDetails(eventEntities.get(0).getDetails());
+			result.setId(birthEvent.getId());
+			result.setPersonId(birthEvent.getPersonId());
+			result.setEventType(birthEvent.getEventType());
+			result.setDate(birthEvent.getDate());
+			result.setLocation(birthEvent.getLocation());
+			result.setDetails(birthEvent.getDetails());
 		}
 				
 		return result;
@@ -111,13 +119,21 @@ public class PersonService {
 		List<uk.me.paulgarner.fh.entity.Event> eventEntities = eventDAO.findAllByPersonIdAndType(id, "Death");
 		
 		if (!eventEntities.isEmpty()) {
+			uk.me.paulgarner.fh.entity.Event deathEvent = eventEntities.get(0); 
+			for (uk.me.paulgarner.fh.entity.Event event : eventEntities) {
+				if (event.isPrimary()) {
+					deathEvent = event;
+					break;
+				}
+			}
+			
 			result = new Event();
-			result.setId(eventEntities.get(0).getId());
-			result.setPersonId(eventEntities.get(0).getPersonId());
-			result.setEventType(eventEntities.get(0).getEventType());
-			result.setDate(eventEntities.get(0).getDate());
-			result.setLocation(eventEntities.get(0).getLocation());
-			result.setDetails(eventEntities.get(0).getDetails());
+			result.setId(deathEvent.getId());
+			result.setPersonId(deathEvent.getPersonId());
+			result.setEventType(deathEvent.getEventType());
+			result.setDate(deathEvent.getDate());
+			result.setLocation(deathEvent.getLocation());
+			result.setDetails(deathEvent.getDetails());
 		}
 				
 		return result;

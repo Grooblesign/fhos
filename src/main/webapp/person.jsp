@@ -56,7 +56,14 @@
 					<c:if test="${null != father.getBirthEvent()}">
 						<td width="30%"><c:out value="${father.getBirthEvent().getDate()}" />&nbsp;<c:out value="${father.getBirthEvent().getLocation()}"/></td>
 					</c:if>
-					<td width="30%">&nbsp;</td>
+					
+					<c:if test="${null == father.getDeathEvent()}">
+						<td width="30%">&nbsp;</td>
+					</c:if>
+					<c:if test="${null != father.getDeathEvent()}">
+						<td width="30%"><c:out value="${father.getDeathEvent().getDate()}" />&nbsp;<c:out value="${father.getDeathEvent().getLocation()}"/></td>
+					</c:if>
+					
 				</c:if>
 				<c:if test="${null == father}">
 					<td width="10%">&nbsp;</td>
@@ -75,7 +82,13 @@
 					<c:if test="${null != mother.getBirthEvent()}">
 						<td width="30%"><c:out value="${mother.getBirthEvent().getDate()}" />&nbsp;<c:out value="${mother.getBirthEvent().getLocation()}"/></td>
 					</c:if>
-					<td width="30%">&nbsp;</td>
+					
+					<c:if test="${null == mother.getDeathEvent()}">
+						<td width="30%">&nbsp;</td>
+					</c:if>
+					<c:if test="${null != mother.getDeathEvent()}">
+						<td width="30%"><c:out value="${mother.getDeathEvent().getDate()}" />&nbsp;<c:out value="${mother.getDeathEvent().getLocation()}"/></td>
+					</c:if>
 				</c:if>
 				<c:if test="${null == mother}">
 					<td width="10%">&nbsp;</td>
@@ -135,5 +148,9 @@
 			</tr>
 		</c:forEach>
 		</table>
+		
+		<h2>Marriages</h2>
+		
+		<br />
 	</body>
 </html>

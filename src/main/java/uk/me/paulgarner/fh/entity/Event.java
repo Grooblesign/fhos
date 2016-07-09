@@ -31,6 +31,9 @@ public class Event implements Serializable {
 
 	@Column
 	private String details;
+	
+	@Column
+	private boolean isPrimary;
 
 	public long getId() {
 		return id;
@@ -78,5 +81,13 @@ public class Event implements Serializable {
 
 	public void setDetails(String details) {
 		this.details = details;
+	}
+
+	public boolean isPrimary() {
+		return isPrimary;
+	}
+
+	public void setPrimary(boolean isPrimary) {
+		this.isPrimary = isPrimary;
 	}
 }

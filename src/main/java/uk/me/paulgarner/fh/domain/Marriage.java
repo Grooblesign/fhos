@@ -1,38 +1,21 @@
-package uk.me.paulgarner.fh.entity;
+package uk.me.paulgarner.fh.domain;
 
-import java.io.Serializable;
+import uk.me.paulgarner.fh.util.DateValueCalculator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+public class Marriage implements Comparable {
 
-@Entity
-@Table(name = "marriage")
-public class Marriage implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@Column
 	private long id;
 
-	@Column(name="husbandid", nullable=false)
 	private long husbandId;
 
-	@Column(name="wifeId", nullable=false)
 	private long wifeId;
 	
-	@Column
 	private String location;
 
-	@Column
 	private String date;
 
-	@Column
 	private String notes;
 
-	@Column(name="citationId", nullable=false)
 	private long citationId;
 
 	public long getId() {
@@ -89,5 +72,15 @@ public class Marriage implements Serializable {
 
 	public void setCitationId(long citationId) {
 		this.citationId = citationId;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		Marriage other = (Marriage)o;
+		
+		Integer thisDateValue = DateValueCalculator.getDateValue(this.getDate());
+		Integer otherDateValue = DateValueCalculator.getDateValue(other.getDate());
+		
+		return thisDateValue.compareTo(otherDateValue);
 	}
 }

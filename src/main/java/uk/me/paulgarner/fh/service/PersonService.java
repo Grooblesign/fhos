@@ -10,6 +10,7 @@ import uk.me.paulgarner.fh.dao.EventDAO;
 import uk.me.paulgarner.fh.dao.PersonDAO;
 import uk.me.paulgarner.fh.domain.Event;
 import uk.me.paulgarner.fh.domain.Person;
+import uk.me.paulgarner.fh.entity.PersonEntity;
 
 @Model
 public class PersonService {
@@ -23,21 +24,10 @@ public class PersonService {
 	public List<Person> getAll() {
 		List<Person> result = new ArrayList<Person>();
 		
-		List<uk.me.paulgarner.fh.entity.Person> personEntities = personDAO.findAll();
+		List<PersonEntity> personEntities = personDAO.findAll();
 		
-		for (uk.me.paulgarner.fh.entity.Person personEntity : personEntities) {
-			Person person = new Person();
-			
-			person.setId(personEntity.getId());
-			person.setForenames(personEntity.getForenames());
-			person.setSurname(personEntity.getSurname());
-			person.setFatherId(personEntity.getFatherId());
-			person.setMotherId(personEntity.getMotherId());
-
-			person.setBirthEvent(getBirthEvent(personEntity.getId()));
-			person.setDeathEvent(getDeathEvent(personEntity.getId()));
-
-			result.add(person);
+		for (PersonEntity personEntity : personEntities) {
+			result.add(adapt(personEntity));
 		}
 		
 		return result;
@@ -46,41 +36,31 @@ public class PersonService {
 	public List<Person> getAllBySurnameStartingWithLetter(String letter) {
 		List<Person> result = new ArrayList<Person>();
 		
-		List<uk.me.paulgarner.fh.entity.Person> personEntities = personDAO.findAllBySurnameStartingWithLetter(letter);
+		List<PersonEntity> personEntities = personDAO.findAllBySurnameStartingWithLetter(letter);
 		
-		for (uk.me.paulgarner.fh.entity.Person personEntity : personEntities) {
-			Person person = new Person();
-			
-			person.setId(personEntity.getId());
-			person.setForenames(personEntity.getForenames());
-			person.setSurname(personEntity.getSurname());
-			person.setFatherId(personEntity.getFatherId());
-			person.setMotherId(personEntity.getMotherId());
-
-			person.setBirthEvent(getBirthEvent(personEntity.getId()));
-			person.setDeathEvent(getDeathEvent(personEntity.getId()));
-
-			result.add(person);
+		for (PersonEntity personEntity : personEntities) {
+			result.add(adapt(personEntity));
 		}
 		
 		return result;
 	}
+	
+	public List<Person> getAllChildrenByPersonId(long personId) {
+		List<Person> result = new ArrayList<Person>();
+	
+		List<PersonEntity> personEntities = personDAO.findAllByFatherId(personId);
+		personEntities.addAll(personDAO.findAllByMotherId(personId));
+		
+		for (PersonEntity personEntity : personEntities) {
+			result.add(adapt(personEntity));
+		}
+	
+		return result;
+
+	}
 
 	public Person getById(Long id) {
-		uk.me.paulgarner.fh.entity.Person personEntity = personDAO.findById(id); 
-		
-		Person person = new Person();
-		
-		person.setId(personEntity.getId());
-		person.setForenames(personEntity.getForenames());
-		person.setSurname(personEntity.getSurname());
-		person.setFatherId(personEntity.getFatherId());
-		person.setMotherId(personEntity.getMotherId());
-
-		person.setBirthEvent(getBirthEvent(id));
-		person.setDeathEvent(getDeathEvent(personEntity.getId()));
-		
-		return person;
+		return adapt(personDAO.findById(id));
 	}
 	
 	public Person getById(String id) {
@@ -137,5 +117,20 @@ public class PersonService {
 		}
 				
 		return result;
+	}
+	
+	private Person adapt(PersonEntity in) {
+		Person out = new Person();
+		
+		out.setId(in.getId());
+		out.setForenames(in.getForenames());
+		out.setSurname(in.getSurname());
+		out.setFatherId(in.getFatherId());
+		out.setMotherId(in.getMotherId());
+
+		out.setBirthEvent(getBirthEvent(in.getId()));
+		out.setDeathEvent(getDeathEvent(in.getId()));
+		
+		return out;
 	}
 }

@@ -150,6 +150,62 @@
 		</table>
 		
 		<h2>Marriages</h2>
+
+		<table width='75%'>
+			<thead>
+				<tr>
+					<th width='10%'>Id</th>
+					<th width='20%'>Date</th>
+					<th width='30%'>Spouse</th>
+					<th width='40%'>Localtion</th>
+				</tr>
+			</thead>
+		<c:forEach items="${marriageService.getAllForPersonId(id)}" var="marriage">
+			<tr>
+				<td><a href="marriage.jsp?id=<c:out value="${marriage.getId()}"/>"><c:out value="${marriage.getId()}"/></a></td>
+				<td><c:out value="${marriage.getDate()}"/></td>
+				<c:if test="${id == marriage.getHusbandId()}">
+					<c:set var="spouse" value="${personService.getById(marriage.getWifeId())}"/>
+				</c:if>
+				<c:if test="${id == marriage.getWifeId()}">
+					<c:set var="spouse" value="${personService.getById(marriage.getHusbandId())}"/>
+				</c:if>
+				<td><a href="person.jsp?id=<c:out value="${spouse.getId()}"/>"><c:out value="${spouse.getFullName()}"/></a></td>
+				<td><c:out value="${marriage.getLocation()}"/></td>
+			</tr>
+		</c:forEach>
+		</table>
+		
+		<h2>Children</h2>
+
+		<table width='75%'>
+			<thead>
+				<tr>
+					<th width='10%'>Id</th>
+					<th>Name</th>
+					<th width='30%'>Birth</th>
+					<th width='30%'>Death</th>
+				</tr>
+			</thead>
+		<c:forEach items="${personService.getAllChildrenByPersonId(id)}" var="child">
+			<tr>
+				<td><a href="person.jsp?id=<c:out value="${child.getId()}"/>"><c:out value="${child.getId()}"/></a></td>
+				<td><c:out value="${child.getFullName()}"/></td>
+				<c:if test="${null == child.getBirthEvent()}">
+					<td>&nbsp;</td>
+				</c:if>
+				<c:if test="${null != child.getBirthEvent()}">
+					<td><c:out value="${child.getBirthEvent().getDate()}" />&nbsp;<c:out value="${child.getBirthEvent().getLocation()}"/></td>
+				</c:if>
+				<c:if test="${null == child.getDeathEvent()}">
+					<td>&nbsp;</td>
+				</c:if>
+				<c:if test="${null != child.getDeathEvent()}">
+					<td><c:out value="${child.getDeathEvent().getDate()}" />&nbsp;<c:out value="${child.getDeathEvent().getLocation()}"/></td>
+				</c:if>
+			</tr>
+		</c:forEach>
+		</table>
 		
 		<br />
 	</body>

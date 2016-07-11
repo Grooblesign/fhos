@@ -21,8 +21,8 @@ import uk.me.paulgarner.fh.entity.Census;
 import uk.me.paulgarner.fh.entity.CensusHousehold;
 import uk.me.paulgarner.fh.entity.CensusHouseholdPerson;
 import uk.me.paulgarner.fh.entity.Event;
-import uk.me.paulgarner.fh.entity.Marriage;
-import uk.me.paulgarner.fh.entity.Person;
+import uk.me.paulgarner.fh.entity.MarriageEntity;
+import uk.me.paulgarner.fh.entity.PersonEntity;
 
 @Model
 public class TimelineService {
@@ -103,10 +103,10 @@ public class TimelineService {
 			result.add(timelineEvent);
 		}
 		
-		List<Marriage> marriages = marriageDAO.findAllByPersonId(personId);
+		List<MarriageEntity> marriages = marriageDAO.findAllByPersonId(personId);
 
-		for (Marriage marriage : marriages) {
-			Person spouse = null;
+		for (MarriageEntity marriage : marriages) {
+			PersonEntity spouse = null;
 			
 			if (marriage.getHusbandId() == personId) {
 				spouse = personDAO.findById(marriage.getWifeId());

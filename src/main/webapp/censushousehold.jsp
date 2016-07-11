@@ -55,7 +55,7 @@
 			</thead>
 		<c:forEach items="${censusService.getAllCensusHouseholdPersonByCensusHouseholdId(id)}" var="censusPerson">
 			<tr>
-				<td><c:out value="${censusPerson.id}"/></td>
+				<td><a href="censushouseholdentry.jsp?id=<c:out value="${censusPerson.id}"/>"><c:out value="${censusPerson.id}"/></a></td>
 				
 				<c:if test="${null == censusPerson.personId or 0 == censusPerson.personId}">
 					<td><c:out value="${censusPerson.name}"/></td>

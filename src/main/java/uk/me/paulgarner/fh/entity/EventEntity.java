@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "event")
-public class Event implements Serializable {
+public class EventEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -31,6 +31,9 @@ public class Event implements Serializable {
 
 	@Column
 	private String details;
+	
+	@Column(name="citationId", nullable=false)
+	private Long citationId;
 	
 	@Column
 	private boolean isPrimary;
@@ -89,5 +92,13 @@ public class Event implements Serializable {
 
 	public void setPrimary(boolean isPrimary) {
 		this.isPrimary = isPrimary;
+	}
+
+	public Long getCitationId() {
+		return citationId;
+	}
+
+	public void setCitationId(Long citationId) {
+		this.citationId = citationId;
 	}
 }

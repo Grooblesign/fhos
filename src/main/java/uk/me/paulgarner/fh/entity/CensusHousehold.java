@@ -23,8 +23,8 @@ public class CensusHousehold implements Serializable {
 	@Column(name="censusid", nullable=false)
 	private long censusId;
 
-	@Column(name="citationid", nullable=false)
-	private long citationId;
+	@Column(name="citationid", nullable=true)
+	private Long citationId;
 
 	@Column
 	private String folio;
@@ -62,11 +62,11 @@ public class CensusHousehold implements Serializable {
 		this.censusId = censusId;
 	}
 
-	public long getCitationId() {
+	public Long getCitationId() {
 		return citationId;
 	}
 
-	public void setCitationId(long citationId) {
+	public void setCitationId(Long citationId) {
 		this.citationId = citationId;
 	}
 

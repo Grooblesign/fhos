@@ -31,7 +31,7 @@ public class DateValueCalculator {
 			Pattern pattern = Pattern.compile("^[0-9]{4}");
 			Matcher matcher = pattern.matcher(dateString);
 			if (matcher.find()) {
-				result = Integer.parseInt(dateString.substring(0,4));
+				result = Integer.parseInt(dateString.substring(0,4)) * 10000;
 			}
 	
 			pattern = Pattern.compile("^Q[0-9]{1} ([0-9]{4})$");

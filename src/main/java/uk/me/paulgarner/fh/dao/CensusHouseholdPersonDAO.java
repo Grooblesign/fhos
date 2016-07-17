@@ -35,4 +35,10 @@ public class CensusHouseholdPersonDAO {
 		
 		return result;
 	}
+	
+	public CensusHouseholdPerson findById(long id) {
+		CensusHouseholdPerson result = entityManager.find(CensusHouseholdPerson.class, id);
+        return result;
+	}
+
 }

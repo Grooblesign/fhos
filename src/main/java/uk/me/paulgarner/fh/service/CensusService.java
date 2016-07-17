@@ -77,4 +77,8 @@ public class CensusService {
 	public List<CensusHouseholdPerson> getAllCensusHouseholdPersonByCensusHouseholdId(long censusHouseholdId) {
 		return censusHouseholdPersonDAO.findAllByCensusHouseholdId(censusHouseholdId);
 	}
+	
+	public CensusHouseholdPerson getCensusHouseholdPersonById(long censusHouseholdPersonId) {
+		return censusHouseholdPersonDAO.findById(censusHouseholdPersonId);
+	}
 }

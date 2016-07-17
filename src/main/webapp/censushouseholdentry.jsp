@@ -14,8 +14,43 @@
 		<%
 			pageContext.setAttribute("id", request.getParameter("id"));
 		%>
+		<c:set var="entry" value="${censusService.getCensusHouseholdPersonById(id)}"/>
 	
 		<h1>Census Household Entry</h1>
-	
+
+		<table width='50%'>
+			<tr>
+				<td class='header' width='20%'>Name</td>
+				<td><c:out value="${entry.getName()}"/></td>
+			</tr>
+			<tr>
+				<td class='header' width='20%'>Rel</td>
+				<td><c:out value="${entry.getRelationshipToHead()}"/></td>
+			</tr>
+			<tr>
+				<td class='header' width='20%'>Age</td>
+				<td><c:out value="${entry.getAge()}"/></td>
+			</tr>
+			<tr>
+				<td class='header' width='20%'>Status</td>
+				<td><c:out value="${entry.getStatus()}"/></td>
+			</tr>
+			<tr>
+				<td class='header' width='20%'>Occupation</td>
+				<td><c:out value="${entry.getOccupation()}"/></td>
+			</tr>
+			<tr>
+				<td class='header' width='20%'>Birthplace</td>
+				<td><c:out value="${entry.getBirthplace()}"/></td>
+			</tr>
+		</table>
+
+		<br />
+		
+		<!-- 	
+		<a href="/fh/censushouseholdentryedit.jsp?id=<c:out value="${id}"/>"><button type="button">Edit</button></a>
+		<a href="/fh/censushouseholdentrydelete.jsp?id=<c:out value="${id}"/>"><button type="button">Delete</button></a>
+		 -->
+		
 	</body>
 </html>

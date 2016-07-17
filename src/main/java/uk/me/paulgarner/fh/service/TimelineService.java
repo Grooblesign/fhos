@@ -20,7 +20,7 @@ import uk.me.paulgarner.fh.domain.TimelineEventType;
 import uk.me.paulgarner.fh.entity.Census;
 import uk.me.paulgarner.fh.entity.CensusHousehold;
 import uk.me.paulgarner.fh.entity.CensusHouseholdPerson;
-import uk.me.paulgarner.fh.entity.Event;
+import uk.me.paulgarner.fh.entity.EventEntity;
 import uk.me.paulgarner.fh.entity.MarriageEntity;
 import uk.me.paulgarner.fh.entity.PersonEntity;
 
@@ -64,9 +64,9 @@ public class TimelineService {
 		
 		List<TimelineEvent> result = new ArrayList<TimelineEvent>();
 		
-		List<Event> events = eventDAO.findAllByPersonId(personId);
+		List<EventEntity> events = eventDAO.findAllByPersonId(personId);
 		
-		for (Event event : events) {
+		for (EventEntity event : events) {
 			if (null != typeMap.get(event.getEventType())) {
 				TimelineEvent timelineEvent = new TimelineEvent();
 				

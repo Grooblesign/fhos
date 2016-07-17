@@ -70,11 +70,11 @@ public class PersonService {
 	private Event getBirthEvent(Long id) {
 		Event result = null;
 		
-		List<uk.me.paulgarner.fh.entity.Event> eventEntities = eventDAO.findAllByPersonIdAndType(id,  "Birth");
+		List<uk.me.paulgarner.fh.entity.EventEntity> eventEntities = eventDAO.findAllByPersonIdAndType(id,  "Birth");
 		
 		if (!eventEntities.isEmpty()) {
-			uk.me.paulgarner.fh.entity.Event birthEvent = eventEntities.get(0); 
-			for (uk.me.paulgarner.fh.entity.Event event : eventEntities) {
+			uk.me.paulgarner.fh.entity.EventEntity birthEvent = eventEntities.get(0); 
+			for (uk.me.paulgarner.fh.entity.EventEntity event : eventEntities) {
 				if (event.isPrimary()) {
 					birthEvent = event;
 					break;
@@ -96,11 +96,11 @@ public class PersonService {
 	private Event getDeathEvent(Long id) {
 		Event result = null;
 		
-		List<uk.me.paulgarner.fh.entity.Event> eventEntities = eventDAO.findAllByPersonIdAndType(id, "Death");
+		List<uk.me.paulgarner.fh.entity.EventEntity> eventEntities = eventDAO.findAllByPersonIdAndType(id, "Death");
 		
 		if (!eventEntities.isEmpty()) {
-			uk.me.paulgarner.fh.entity.Event deathEvent = eventEntities.get(0); 
-			for (uk.me.paulgarner.fh.entity.Event event : eventEntities) {
+			uk.me.paulgarner.fh.entity.EventEntity deathEvent = eventEntities.get(0); 
+			for (uk.me.paulgarner.fh.entity.EventEntity event : eventEntities) {
 				if (event.isPrimary()) {
 					deathEvent = event;
 					break;

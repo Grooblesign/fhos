@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
 
-import uk.me.paulgarner.fh.entity.Event;
+import uk.me.paulgarner.fh.entity.EventEntity;
 
 public class EventDAO {
 	
@@ -14,16 +14,20 @@ public class EventDAO {
     private EntityManager entityManager;
 
     @SuppressWarnings("unchecked")
-	public List<Event> findAllByPersonId(Long personId) {
+	public List<EventEntity> findAllByPersonId(Long personId) {
     	return entityManager.createQuery(
-    		    String.format("SELECT e FROM Event e WHERE e.personId=%s ORDER BY e.id", personId))
+    		    String.format("SELECT e FROM EventEntity e WHERE e.personId=%s ORDER BY e.id", personId))
     		    .getResultList();    
 	}
 
     @SuppressWarnings("unchecked")
-	public List<Event> findAllByPersonIdAndType(Long personId, String eventType) {
+	public List<EventEntity> findAllByPersonIdAndType(Long personId, String eventType) {
     	return entityManager.createQuery(
-    		    String.format("SELECT e FROM Event e WHERE e.personId=%s AND e.eventType='%s' ORDER BY e.id", personId, eventType))
+    		    String.format("SELECT e FROM EventEntity e WHERE e.personId=%s AND e.eventType='%s' ORDER BY e.id", personId, eventType))
     		    .getResultList();    
+	}
+    
+	public EventEntity findById(long id) {
+        return entityManager.find(EventEntity.class, id);
 	}
 }

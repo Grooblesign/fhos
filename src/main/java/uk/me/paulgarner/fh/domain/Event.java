@@ -13,6 +13,8 @@ public class Event {
 	private String date;
 
 	private String details;
+	
+	private long citationId;
 
 	public long getId() {
 		return id;
@@ -60,5 +62,13 @@ public class Event {
 
 	public void setDetails(String details) {
 		this.details = details;
+	}
+
+	public long getCitationId() {
+		return citationId;
+	}
+
+	public void setCitationId(long citationId) {
+		this.citationId = citationId;
 	}
 }

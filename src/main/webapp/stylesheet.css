@@ -1,11 +1,11 @@
 body {
-	color: #000000;
-	background-color: #ffffff;
+	color: #ffffff;
+	background-color: #000000;
 	font-family: Consolas, monaco, monospace;
 }
 table {
 	border-style: solid;
-	border-color: #000000;
+	border-color: #ffffff;
 	border-collapse: collapse;
 	cursor: pointer;
 }
@@ -21,4 +21,13 @@ td, th {
 	padding-right: 1em;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
+}
+th {
+	color: #000000;
+}
+a {
+	color: yellow;
+}
+.header {
+	color: #000000;	
 }

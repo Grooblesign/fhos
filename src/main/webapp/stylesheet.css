@@ -1,7 +1,7 @@
 body {
 	color: #ffffff;
 	background-color: #000000;
-	font-family: Consolas, monaco, monospace;
+	font-family: Segoe UI, Consolas, monaco, monospace;
 }
 table {
 	border-style: solid;
@@ -10,7 +10,7 @@ table {
 	cursor: pointer;
 }
 th, .header {
-	background: #cccccc;
+	background: black;
 	font-weight: bold;
 	cursor: pointer;
 }
@@ -23,11 +23,11 @@ td, th {
 	padding-bottom: 0.5em;
 }
 th {
-	color: #000000;
+	color: #ffffff;
 }
 a {
 	color: yellow;
 }
 .header {
-	color: #000000;	
+	color: #ffffff;	
 }

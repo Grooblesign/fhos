@@ -87,7 +87,11 @@ public class EventEntity implements Serializable {
 	}
 
 	public Boolean isPrimary() {
-		return isPrimary;
+		if (null == isPrimary) {
+			return false;
+		} else {
+			return isPrimary;
+		}
 	}
 
 	public void setPrimary(Boolean isPrimary) {

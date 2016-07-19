@@ -113,7 +113,17 @@
 			</thead>
 		<c:forEach items="${timelineService.getAllByPersonId(id)}" var="event">
 			<tr>
-				<td><a href="event.jsp?id=<c:out value="${event.id}"/>"><c:out value="${event.id}"/></a></td>
+				<c:choose>
+					<c:when test="${event.timelineEventType.asString() eq 'Census'}">
+						<td><a href="censushousehold.jsp?id=<c:out value="${event.id}"/>"><c:out value="${event.id}"/></a></td>
+					</c:when>
+					<c:when test="${event.timelineEventType.asString() eq 'Marriage'}">
+						<td><a href="marriage.jsp?id=<c:out value="${event.id}"/>"><c:out value="${event.id}"/></a></td>
+					</c:when>
+					<c:otherwise>
+						<td><a href="event.jsp?id=<c:out value="${event.id}"/>"><c:out value="${event.id}"/></a></td>
+					</c:otherwise>
+				</c:choose>
 				<td><c:out value="${event.timelineEventType.asString()}"/></td>
 				<td><c:out value="${event.date}"/></td>
 				<td><c:out value="${event.location}"/></td>

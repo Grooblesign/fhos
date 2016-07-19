@@ -13,7 +13,7 @@
 	<body>
 		<H1>Family History</H1>
 
-		<h2>Show surnames starting with:</h2>
+		<h2>Show people with surnames starting with:</h2>
 
 		<table>
 			<tr>

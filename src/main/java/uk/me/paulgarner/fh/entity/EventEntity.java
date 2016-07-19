@@ -36,7 +36,7 @@ public class EventEntity implements Serializable {
 	private Long citationId;
 	
 	@Column
-	private boolean isPrimary;
+	private Boolean isPrimary;
 
 	public long getId() {
 		return id;
@@ -86,12 +86,16 @@ public class EventEntity implements Serializable {
 		this.details = details;
 	}
 
-	public boolean isPrimary() {
+	public Boolean isPrimary() {
 		return isPrimary;
 	}
 
-	public void setPrimary(boolean isPrimary) {
-		this.isPrimary = isPrimary;
+	public void setPrimary(Boolean isPrimary) {
+		if (null == isPrimary) {
+			this.isPrimary = false;
+		} else {
+			this.isPrimary = isPrimary;
+		}
 	}
 
 	public Long getCitationId() {

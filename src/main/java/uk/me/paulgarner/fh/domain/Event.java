@@ -14,7 +14,7 @@ public class Event {
 
 	private String details;
 	
-	private long citationId;
+	private Long citationId;
 
 	public long getId() {
 		return id;
@@ -64,11 +64,15 @@ public class Event {
 		this.details = details;
 	}
 
-	public long getCitationId() {
+	public Long getCitationId() {
 		return citationId;
 	}
 
-	public void setCitationId(long citationId) {
-		this.citationId = citationId;
+	public void setCitationId(Long citationId) {
+		if (null == citationId) {
+			this.citationId = 0L;
+		} else {
+			this.citationId = citationId;
+		}
 	}
 }

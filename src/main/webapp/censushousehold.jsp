@@ -31,7 +31,7 @@
 			</tr>
 			<tr>
 				<td class='header'>Reference</td>
-				<td><c:out value="${censusHousehold.getPiece()}"/></td>
+				<td><c:out value="${censusHousehold.getPiece()}/${censusHousehold.getFolio()}/${censusHousehold.getPage()}"/></td>
 			</tr>
 			<tr>
 				<td class='header'>Notes</td>
@@ -71,6 +71,8 @@
 				<td><c:out value="${censusPerson.birthplace}"/></td>
 			</tr>
 		</c:forEach>
-		</table>		
+		</table>
+		
+		<br />		
 	</body>
 </html>

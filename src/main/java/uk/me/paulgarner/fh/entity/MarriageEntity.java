@@ -32,8 +32,8 @@ public class MarriageEntity implements Serializable {
 	@Column
 	private String notes;
 
-	@Column(name="citationId", nullable=false)
-	private long citationId;
+	@Column(name="citationId")
+	private Long citationId;
 
 	public long getId() {
 		return id;
@@ -83,11 +83,15 @@ public class MarriageEntity implements Serializable {
 		this.notes = notes;
 	}
 
-	public long getCitationId() {
-		return citationId;
+	public Long getCitationId() {
+		if (null == this.citationId) {
+			return 0L;
+		} else {
+			return citationId;
+		}
 	}
 
-	public void setCitationId(long citationId) {
+	public void setCitationId(Long citationId) {
 		this.citationId = citationId;
 	}
 }

@@ -1,7 +1,8 @@
 body {
 	color: #ffffff;
 	background-color: #000000;
-	font-family: Segoe UI, Consolas, monaco, monospace;
+	font-family: Consolas, monaco, monospace;
+	font-size: large;
 }
 table {
 	border-style: solid;

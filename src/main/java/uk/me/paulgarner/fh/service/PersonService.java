@@ -71,7 +71,11 @@ public class PersonService {
 		Event result = null;
 		
 		List<uk.me.paulgarner.fh.entity.EventEntity> eventEntities = eventDAO.findAllByPersonIdAndType(id,  "Birth");
-		
+
+		if (eventEntities.isEmpty()) {
+			eventEntities = eventDAO.findAllByPersonIdAndType(id, "Baptism");
+		}
+
 		if (!eventEntities.isEmpty()) {
 			uk.me.paulgarner.fh.entity.EventEntity birthEvent = eventEntities.get(0); 
 			for (uk.me.paulgarner.fh.entity.EventEntity event : eventEntities) {
@@ -97,6 +101,10 @@ public class PersonService {
 		Event result = null;
 		
 		List<uk.me.paulgarner.fh.entity.EventEntity> eventEntities = eventDAO.findAllByPersonIdAndType(id, "Death");
+		
+		if (eventEntities.isEmpty()) {
+			eventEntities = eventDAO.findAllByPersonIdAndType(id, "Burial");
+		}
 		
 		if (!eventEntities.isEmpty()) {
 			uk.me.paulgarner.fh.entity.EventEntity deathEvent = eventEntities.get(0); 

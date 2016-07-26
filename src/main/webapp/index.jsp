@@ -15,12 +15,28 @@
 
 		<h2>Show people with surnames starting with:</h2>
 
-		<table>
+		<table width="50%">
 			<tr>
 			<%
-			String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-			for (int i=0; i<letters.length(); i++) {
-				String letter = letters.substring(i, i+1);
+			String letters1 = "ABCDEFGHIJKLM";
+			for (int i=0; i<letters1.length(); i++) {
+				String letter = letters1.substring(i, i+1);
+				%>	
+				<td>
+					<a href='surnames.jsp?letter=<%=letter%>'><%=letter%></a>
+				</td>					
+				<%
+			}
+			%>
+			</tr>
+		</table>
+		<br />
+		<table width="50%">
+			<tr>
+			<%
+			String letters2 = "NOPQRSTUVWXYZ";
+			for (int i=0; i<letters2.length(); i++) {
+				String letter = letters2.substring(i, i+1);
 				%>	
 				<td>
 					<a href='surnames.jsp?letter=<%=letter%>'><%=letter%></a>

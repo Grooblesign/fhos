@@ -19,6 +19,8 @@ public class Person {
 	private Event birthEvent;
 
 	private Event deathEvent;
+	
+	private String image;
 
 	public String getFullName() {
 		String fullName = "";
@@ -103,5 +105,13 @@ public class Person {
 
 	public void setDeathEvent(Event deathEvent) {
 		this.deathEvent = deathEvent;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 }

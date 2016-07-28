@@ -30,6 +30,10 @@
 		<c:if test="${null eq person.getMotherId() or 0 eq person.getMotherId()}">
 			<c:set var="mother" value="${null}"/>
 		</c:if>			
+
+		<c:if test="${null != person.getImage()}">
+			<img width="15%" class="portraitImage" src="images/<c:out value="${person.getImage()}"/>" />
+		</c:if>
 		
 		<h1>
 			<c:out value="${person.getFullName()}"/>
@@ -37,7 +41,7 @@
 
 		<h2>Parents</h2>
 		
-		<table width='75%'>
+		<table width='80%'>
 			<thead>
 				<tr>
 					<th>Id</th>

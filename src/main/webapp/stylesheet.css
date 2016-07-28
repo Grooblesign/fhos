@@ -32,3 +32,7 @@ a {
 .header {
 	color: #ffffff;	
 }
+.portraitImage {
+	float: right;
+	margin: 1em 1em 1em 1em;
+}

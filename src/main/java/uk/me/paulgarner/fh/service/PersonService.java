@@ -135,6 +135,7 @@ public class PersonService {
 		out.setSurname(in.getSurname());
 		out.setFatherId(in.getFatherId());
 		out.setMotherId(in.getMotherId());
+		out.setImage(in.getImage());
 
 		out.setBirthEvent(getBirthEvent(in.getId()));
 		out.setDeathEvent(getDeathEvent(in.getId()));

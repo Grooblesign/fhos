@@ -28,6 +28,9 @@ public class PersonEntity implements Serializable {
 
 	@Column(name="motherid", nullable=true)
 	private Long motherId;
+	
+	@Column
+	private String image;
 
 	public long getId() {
 		return id;
@@ -67,5 +70,13 @@ public class PersonEntity implements Serializable {
 
 	public void setMotherId(Long motherId) {
 		this.motherId = motherId;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 }

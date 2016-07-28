@@ -7,6 +7,7 @@ public enum TimelineEventType {
 	CENSUS("Census"),
 	CHILDBORN("Child Born"),
 	DEATH("Death"),
+	IMPRISONMENT("Imprisonment"),
 	MARRIAGE("Marriage"),
 	MILITARYSERVICEBEGIN("Military Begin"),
 	MILITARYSERVICEEND("Military End"),

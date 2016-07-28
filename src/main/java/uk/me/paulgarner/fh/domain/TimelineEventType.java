@@ -13,7 +13,8 @@ public enum TimelineEventType {
 	MILITARYSERVICEEND("Military End"),
 	OCCUPATION("Occupation"),
 	RESIDENCE("Residence"),
-	SPOUSEDEATH("Spouse Death");
+	SPOUSEDEATH("Spouse Death"),
+	WITNESS("Witness");
 	
 	private String typeAsString;
 	

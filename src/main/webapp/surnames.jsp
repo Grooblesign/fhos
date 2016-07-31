@@ -16,7 +16,16 @@
 		%>
 		<h1>Surnames starting with <c:out value="${letter}" /></h1>
 		
-		<table>
+		<table width='100%'>
+			<thead>
+				<tr>
+					<th width='7%'>Id</th>
+					<th width='15%'>Surname</th>
+					<th width='25%'>Forenames</th>
+					<th width='15%'>Birth Date</th>
+					<th width='38%'>Birth Location</th>
+				</tr>
+			</thead>
 		<c:forEach items="${personService.getAllBySurnameStartingWithLetter(letter)}" var="person">
 			<tr>
 				<td><a href="person.jsp?id=<c:out value="${person.id}"/>"><c:out value="${person.id}"/></a></td>

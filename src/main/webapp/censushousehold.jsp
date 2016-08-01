@@ -20,7 +20,7 @@
 	
 		<h1>Census Household</h1>
 		
-		<table width='50%'>
+		<table width='70%'>
 			<tr>
 				<td class='header' width='2	0%'>Census</td>
 				<td><c:out value="${census.getTitle()}"/></td>

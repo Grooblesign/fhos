@@ -39,6 +39,7 @@ public class TimelineService {
 		typeMap.put("Imprisonment", TimelineEventType.IMPRISONMENT);
 		typeMap.put("Milit-Beg", TimelineEventType.MILITARYSERVICEBEGIN);
 		typeMap.put("Occupation", TimelineEventType.OCCUPATION);
+		typeMap.put("Passenger", TimelineEventType.PASSENGER);
 		typeMap.put("Residence", TimelineEventType.RESIDENCE);
 		typeMap.put("Witness", TimelineEventType.WITNESS);
 	}

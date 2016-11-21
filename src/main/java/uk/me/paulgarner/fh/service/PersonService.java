@@ -60,7 +60,13 @@ public class PersonService {
 	}
 
 	public Person getById(Long id) {
-		return adapt(personDAO.findById(id));
+		PersonEntity result = personDAO.findById(id);
+
+		if (null == result) {
+			return null;
+		} else {
+			return adapt(result);
+		}
 	}
 	
 	public Person getById(String id) {

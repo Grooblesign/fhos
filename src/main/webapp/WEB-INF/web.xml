@@ -6,27 +6,10 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          metadata-complete="false">
 
-	<!-- 
-	<security-constraint>	
-        <web-resource-collection>
-            <web-resource-name>HtmlAuth</web-resource-name>
-            <description>application security constraints</description>
-            <url-pattern>/*</url-pattern>
-            <http-method>GET</http-method>
-            <http-method>POST</http-method>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>user</role-name>
-        </auth-constraint>
-    </security-constraint>
-    <login-config>
-        <auth-method>BASIC</auth-method>
-        <realm-name>ApplicationRealm</realm-name>
-    </login-config>
- 
-    <security-role>
-        <role-name>user</role-name>
-    </security-role>
- 	-->
+	<servlet-mapping>
+        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
 

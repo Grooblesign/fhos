@@ -12,6 +12,7 @@ public enum TimelineEventType {
 	MILITARYSERVICEBEGIN("Military Begin"),
 	MILITARYSERVICEEND("Military End"),
 	OCCUPATION("Occupation"),
+	PASSENGER("Passenger"),
 	RESIDENCE("Residence"),
 	SPOUSEDEATH("Spouse Death"),
 	WITNESS("Witness");

@@ -1,7 +1,7 @@
 package uk.me.paulgarner.fh.domain;
 
 public class Person {
-	
+
 	private long id;
 	
 	private String forenames;
@@ -11,10 +11,6 @@ public class Person {
 	private Long fatherId;
 
 	private Long motherId;
-	
-	private String birthDate;
-	
-	private String deathDate;
 	
 	private Event birthEvent;
 
@@ -73,22 +69,6 @@ public class Person {
 
 	public void setMotherId(Long motherId) {
 		this.motherId = motherId;
-	}
-
-	public String getBirthDate() {
-		return birthDate;
-	}
-
-	public void setBirthDate(String birthDate) {
-		this.birthDate = birthDate;
-	}
-
-	public String getDeathDate() {
-		return deathDate;
-	}
-
-	public void setDeathDate(String deathDate) {
-		this.deathDate = deathDate;
 	}
 
 	public Event getBirthEvent() {

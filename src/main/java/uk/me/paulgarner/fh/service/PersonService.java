@@ -2,6 +2,7 @@ package uk.me.paulgarner.fh.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
@@ -15,6 +16,8 @@ import uk.me.paulgarner.fh.entity.PersonEntity;
 @Model
 public class PersonService {
 
+	private transient Logger log = Logger.getLogger(PersonService.class.getName());
+	
 	@Inject
 	private EventDAO eventDAO;
 	
@@ -60,6 +63,8 @@ public class PersonService {
 	}
 
 	public Person getById(Long id) {
+		log.info("getByID - entry with " + id);
+		
 		PersonEntity result = personDAO.findById(id);
 
 		if (null == result) {
